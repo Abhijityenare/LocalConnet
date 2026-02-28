@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Local Business Directory</title>
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="bg-gray-100">
+  <header class="py-4 bg-white shadow">
+    <div class="max-w-7xl mx-auto px-4 flex items-center justify-between">
+      <h1 class="text-2xl font-bold">Business Directory</h1>
+      <button id="addBtn" class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">
+        Add Business
+      </button>
+    </div>
+  </header>
+
+  <main class="p-4 max-w-7xl mx-auto">
+    <div class="mb-4 flex flex-wrap items-center justify-between">
+      <div class="flex-1 mr-4">
+        <input
+          id="searchInput"
+          type="text"
+          placeholder="Search businesses..."
+          class="w-full px-4 py-2 border rounded shadow-sm"
+        />
+      </div>
+    </div>
+
+    <div id="categoryFilters" class="mb-4 space-x-2">
+      <button class="filter-btn px-3 py-1 bg-blue-500 text-white rounded" data-category="All">
+        All
+      </button>
+      <button class="filter-btn px-3 py-1 bg-gray-200 rounded" data-category="Food">
+        Food
+      </button>
+      <button class="filter-btn px-3 py-1 bg-gray-200 rounded" data-category="Health">
+        Health
+      </button>
+      <button class="filter-btn px-3 py-1 bg-gray-200 rounded" data-category="Retail">
+        Retail
+      </button>
+    </div>
+
+    <div id="businessGrid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6"></div>
+  </main>
+
+  <!-- Add Business Modal -->
+  <div
+    id="modal"
+    class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center"
+  >
+    <div class="bg-white p-6 rounded shadow-lg w-full max-w-md">
+      <h2 class="text-xl mb-4">Add Business</h2>
+      <form id="addForm" class="space-y-4">
+        <input
+          type="text"
+          id="name"
+          placeholder="Business Name"
+          required
+          class="w-full px-3 py-2 border rounded"
+        />
+        <input
+          type="text"
+          id="category"
+          placeholder="Category"
+          required
+          class="w-full px-3 py-2 border rounded"
+        />
+        <input
+          type="text"
+          id="contact"
+          placeholder="Contact Number"
+          required
+          class="w-full px-3 py-2 border rounded"
+        />
+        <input
+          type="text"
+          id="address"
+          placeholder="Address"
+          required
+          class="w-full px-3 py-2 border rounded"
+        />
+        <input
+          type="url"
+          id="image"
+          placeholder="Image URL"
+          class="w-full px-3 py-2 border rounded"
+        />
+        <div class="flex justify-end space-x-2">
+          <button
+            type="button"
+            id="cancelBtn"
+            class="px-4 py-2 bg-gray-300 rounded hover:bg-gray-400"
+          >
+            Cancel
+          </button>
+          <button
+            type="submit"
+            class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+          >
+            Add
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
